@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Get route
 app.get('/', (req, res) => {
@@ -9,5 +9,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at port:${port}`);
 });

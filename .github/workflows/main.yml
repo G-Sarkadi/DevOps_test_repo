@@ -74,3 +74,14 @@ jobs:
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
               echo ${{ steps.docker_build.outputs.digest }}
+  render_deployment:
+      name: Deploy to Render
+      runs-on: ubuntu-latest
+      needs: [push_to_DockerHub]
+      steps:
+        - name: Trigger deployment
+          uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
+          with:
+            serviceId: ${{ secrets.RENDER_SERVICE_ID }}
+            apiKey: ${{ secrets.RENDER_API_KEY }}
+            multiple: false #optional, default true
