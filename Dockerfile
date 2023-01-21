@@ -1,4 +1,4 @@
-FROM node
+FROM node:18.13.0-alpine3.17
 LABEL authors="Codecooler"
 
 # Update dependencies and make the image smaller by deleting the apt lists
