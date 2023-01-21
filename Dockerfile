@@ -1,11 +1,6 @@
 FROM node:18.13.0-alpine3.17
 LABEL authors="Codecooler"
 
-# Update dependencies and make the image smaller by deleting the apt lists
-RUN apt-get update \
-    && apt-get install -y \
-    && rm -rf /var/lib/apt/lists/*
-
 # Sets the working directory (it will be created if it doesn't exist)
 WORKDIR /app
 
